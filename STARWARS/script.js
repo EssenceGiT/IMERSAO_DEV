@@ -3,9 +3,14 @@ let pontosVader = 0;
 
 // Inicializa o som de Darth Vader usando Howler.js
 var somVader = new Howl({
-  src: ['darth-vader.mp3'], // Certifique-se de que este arquivo está na mesma pasta
+  src: ['darth-vader.ogg'], // Certifique-se de que este arquivo está na mesma pasta
   loop: true,
   volume: 0.5
+});
+
+// Ao carregar a página, inicia o som automaticamente
+window.addEventListener('load', function() {
+  somVader.play();
 });
 
 function iniciarJogo() {
@@ -16,9 +21,7 @@ function iniciarJogo() {
   document.getElementById("mensagem-acao").textContent = "";
   pontosJogador = 0;
   pontosVader = 0;
-  
-  // Toca a respiração de Darth Vader em loop
-  somVader.play();
+  // O som já está tocando; não é necessário iniciá-lo aqui
 }
 
 function jogar(escolhaJogador) {
@@ -46,7 +49,6 @@ function jogar(escolhaJogador) {
   // Verifica se há diferença de 3 pontos para encerrar o jogo
   if (Math.abs(pontosJogador - pontosVader) >= 3) {
     if (pontosJogador > pontosVader) {
-      // Se o jogador vence, para o som (Vader não respira mais)
       mostrarResultado(true);
     } else {
       mostrarResultado(false);
@@ -84,13 +86,10 @@ function mostrarResultado(venceu) {
   if (venceu) {
     mensagem.textContent = "May the force be with you!";
     img.src = "https://i.postimg.cc/rs796Dgk/yoda-star-wars.gif";
-    // Se o jogador vence, interrompe o som (Vader não respira mais)
-    somVader.stop();
   } else {
     mensagem.textContent = "I have you now!";
     img.src = "https://i.postimg.cc/2SkDb3rG/your-force-is-strong.gif";
     alert("Vader venceu a partida!");
-    // Se Vader vence, o som continua tocando
   }
 
   resultadoDiv.appendChild(mensagem);
@@ -106,10 +105,8 @@ function reiniciarJogo() {
   document.getElementById("mensagem-acao").textContent = "";
   pontosJogador = 0;
   pontosVader = 0;
-  
-  // Reinicia o som para o próximo jogo
-  somVader.stop();
-  somVader.play();
+  // O som continuará tocando; para reiniciar, podemos garantir que ele esteja no início
+  somVader.seek(0);
 }
 
 function formatarAcao(acao) {
