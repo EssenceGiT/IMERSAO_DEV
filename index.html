@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Wars - Defesa Jedi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <img src="https://i.postimg.cc/Bbd8DCxC/imers-o2.png" alt="Logo" class="logo">
+  <div class="container">
+    <div class="content">
+      <h2>Darth Vader quer os planos da Estrela da Morte.</h2>
+      <p>Defenda-se e não deixe ele entrar na sua mente!</p>
+      <p class="instrucoes"><strong>Instrução:</strong> Vença a partida conseguindo uma diferença de 3 pontos contra Darth Vader!</p>
+      <button onclick="iniciarJogo()">Use a Força!</button>
+    </div>
+    <div id="game-area" class="hidden">
+      <p>Escolha sua ação:</p>
+      <button onclick="jogar(1)">🛡 Bloquear</button>
+      <button onclick="jogar(2)">⚔ Atacar</button>
+      <button onclick="jogar(3)">🌌 Usar a Força</button>
+      <p id="mensagem-acao"></p>
+    </div>
+    <div id="resultado"></div>
+    <button id="reiniciar" class="hidden" onclick="reiniciarJogo()">🔄 Jogar Novamente</button>
+  </div>
+  <footer>Ayrton - Imersão DEV - 2025</footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
