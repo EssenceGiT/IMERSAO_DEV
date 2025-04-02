@@ -1,6 +1,13 @@
 let pontosJogador = 0;
 let pontosVader = 0;
 
+// Inicializa o som de Darth Vader usando Howler.js
+var somVader = new Howl({
+  src: ['darth-vader.mp3'], // Certifique-se de que este arquivo está na mesma pasta
+  loop: true,
+  volume: 0.5
+});
+
 function iniciarJogo() {
   document.querySelector(".content").classList.add("hidden");
   document.getElementById("game-area").classList.remove("hidden");
@@ -9,18 +16,18 @@ function iniciarJogo() {
   document.getElementById("mensagem-acao").textContent = "";
   pontosJogador = 0;
   pontosVader = 0;
+  
+  // Toca a respiração de Darth Vader em loop
+  somVader.play();
 }
 
 function jogar(escolhaJogador) {
   // Gera ação aleatória para Vader (1 a 3)
   let acaoVader = Math.floor(Math.random() * 3) + 1;
-
-  // Atualiza mensagem com as escolhas (CORRIGIDO: uso de crases ``)
-  document.getElementById(
-    "mensagem-acao"
-  ).textContent = `Você escolheu: ${formatarAcao(
-    escolhaJogador
-  )} | Vader escolheu: ${formatarAcao(acaoVader)}`;
+  
+  // Atualiza mensagem com as escolhas
+  document.getElementById("mensagem-acao").textContent = 
+    `Você escolheu: ${formatarAcao(escolhaJogador)} | Vader escolheu: ${formatarAcao(acaoVader)}`;
 
   // Verifica resultado da rodada com base nas regras:
   // Ataque vence Bloqueio, Bloqueio vence Força, Força vence Ataque.
@@ -39,6 +46,7 @@ function jogar(escolhaJogador) {
   // Verifica se há diferença de 3 pontos para encerrar o jogo
   if (Math.abs(pontosJogador - pontosVader) >= 3) {
     if (pontosJogador > pontosVader) {
+      // Se o jogador vence, para o som (Vader não respira mais)
       mostrarResultado(true);
     } else {
       mostrarResultado(false);
@@ -49,6 +57,7 @@ function jogar(escolhaJogador) {
 function resultadoRodada(jogador, vader) {
   if (jogador === vader) return 0;
 
+  // Regras do jogo:
   // Ataque (2) vence Bloqueio (1)
   if (jogador === 2 && vader === 1) return 1;
   if (jogador === 1 && vader === 2) return -1;
@@ -75,10 +84,13 @@ function mostrarResultado(venceu) {
   if (venceu) {
     mensagem.textContent = "May the force be with you!";
     img.src = "https://i.postimg.cc/rs796Dgk/yoda-star-wars.gif";
+    // Se o jogador vence, interrompe o som (Vader não respira mais)
+    somVader.stop();
   } else {
     mensagem.textContent = "I have you now!";
     img.src = "https://i.postimg.cc/2SkDb3rG/your-force-is-strong.gif";
     alert("Vader venceu a partida!");
+    // Se Vader vence, o som continua tocando
   }
 
   resultadoDiv.appendChild(mensagem);
@@ -94,18 +106,18 @@ function reiniciarJogo() {
   document.getElementById("mensagem-acao").textContent = "";
   pontosJogador = 0;
   pontosVader = 0;
+  
+  // Reinicia o som para o próximo jogo
+  somVader.stop();
+  somVader.play();
 }
 
 function formatarAcao(acao) {
   switch (acao) {
-    case 1:
-      return "Bloquear";
-    case 2:
-      return "Atacar";
-    case 3:
-      return "Usar a Força";
-    default:
-      return "";
+    case 1: return "Bloquear";
+    case 2: return "Atacar";
+    case 3: return "Usar a Força";
+    default: return "";
   }
 }
 

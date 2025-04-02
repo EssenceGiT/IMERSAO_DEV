@@ -18,8 +18,7 @@ body {
 
 /* Container principal */
 .container {
-  background: url("https://i.postimg.cc/RFG2X50W/VADER-4.gif") no-repeat center
-    center/cover;
+  background: url("https://i.postimg.cc/RFG2X50W/VADER-4.gif") no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,6 +38,8 @@ body {
 .instrucoes {
   font-size: 1em;
   margin-top: 10px;
+  color: #f39c12;
+  font-weight: bold;
 }
 
 /* Botões */
