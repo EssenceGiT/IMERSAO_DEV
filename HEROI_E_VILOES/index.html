@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qual Lado é mais Poderoso?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="logo">
+    <img src="https://i.postimg.cc/Bbd8DCxC/imers-o2.png" alt="Logo da Imersão Dev">
+  </div>
+
+  <div class="titulo">
+    <h2>Qual Lado é mais Poderoso?</h2>
+  </div>
+
+  <main class="conteudo-jogo">
+    <div id="container">
+      <h2>Escolha 3 heróis de Star Wars para seu time:</h2>
+      
+      <!-- Lista dos heróis disponíveis -->
+      <div id="lista-herois"></div>
+      
+      <!-- Lista dos vilões disponíveis -->
+      <div id="lista-viloes"></div>
+      
+      <!-- Inputs para seleção dos heróis -->
+      <div id="selecao-herois">
+        <div class="input-group">
+          <label for="hero1">Herói 1 (1 a 10):</label>
+          <input type="number" id="hero1" min="1" max="10" required>
+        </div>
+        <div class="input-group">
+          <label for="hero2">Herói 2 (1 a 10):</label>
+          <input type="number" id="hero2" min="1" max="10" required>
+        </div>
+        <div class="input-group">
+          <label for="hero3">Herói 3 (1 a 10):</label>
+          <input type="number" id="hero3" min="1" max="10" required>
+        </div>
+        <button id="submitHerois">Confirmar Seleção</button>
+      </div>
+      
+      <!-- Áreas para exibir as informações e resultado -->
+      <p id="informacoesJogador" class="resultado"></p>
+      <p id="informacoesComputador" class="resultado"></p>
+      <button id="resultadoBtn" style="display:none;">Ver Resultado</button>
+      <h1 id="resultadoFinal" class="resultado"></h1>
+      <button id="jogarNovamente" class="hidden">Jogar Novamente</button>
+    </div>
+  </main>
+
+  <footer>Ayrton - Imersão DEV - 2025</footer>
+  <script src="script.js"></script>
+</body>
+</html>

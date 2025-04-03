@@ -1,0 +1,94 @@
+/* Estilos Globais */
+body {
+  background: url("https://i.postimg.cc/c194cmZv/Star-Wars.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  text-align: right;
+  padding: 10px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.titulo {
+  margin: 20px auto;
+  box-shadow: 0 0 20px #ff1b7b;
+   background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  max-width: 600px;
+  
+}
+
+.conteudo-jogo {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 5px #ff1b7b;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.conteudo-jogo h2 {
+  margin-bottom: 15px;
+}
+
+/* Grupo de input */
+.input-group {
+  margin: 10px 0;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+/* Lista de heróis e vilões */
+#lista-herois,
+#lista-viloes {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+#lista-viloes h3 {
+  margin-bottom: 5px;
+}
+
+/* Botões */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  background: #ff1b7b;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1em;
+}
+
+button:hover {
+  background: #19caca;
+}
+
+/* Resultado */
+.resultado {
+  margin-top: 20px;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+/* Esconder elementos */
+.hidden {
+  display: none;
+}
+
+footer {
+  margin-top: 20px;
+}
