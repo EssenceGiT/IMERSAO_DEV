@@ -106,7 +106,7 @@ header {
 }
 
 .feedback-incorrect {
-  color: #02caf3;
+  color: #ea0b0b;
   font-size: 1.3em;
 }
 
@@ -161,7 +161,7 @@ header {
 #reiniciarQuiz {
   padding: 8px 16px;
   border: none;
-  background: rgba(255, 27, 123, 0.8);
+  background: rgba(0, 210, 247, 0.8);
   color: white;
   cursor: pointer;
   border-radius: 4px;
