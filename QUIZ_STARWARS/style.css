@@ -22,13 +22,13 @@ header {
 .logo img {
   width: 40%;
   max-width: 300px;
-  right: 25px;
   position: absolute;
+  right: 25px;
 }
 
 .titulo {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 80px; /* espaço para o logo */
 }
 
 .titulo h2 {
@@ -42,6 +42,8 @@ header {
   font-weight: normal;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 /* Caixa principal do Quiz - altura automática para conter todo o conteúdo */
@@ -74,8 +76,7 @@ header {
 .conteudo {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px; /* Espaçamento menor entre os elementos */
+  gap: 10px;
   padding: 5px;
 }
 
@@ -90,8 +91,6 @@ header {
 
 #progresso-text {
   font-weight: bold;
-  font-size: 1em;
-  color: white;
 }
 
 #feedback-icons {
@@ -104,13 +103,11 @@ header {
 .feedback-correct {
   color: #27ae60;
   font-size: 1.3em;
-  margin-left: 5px;
 }
 
 .feedback-incorrect {
-  color: #e74c3c;
+  color: #02caf3;
   font-size: 1.3em;
-  margin-left: 5px;
 }
 
 /* Estilo da pergunta */
@@ -126,10 +123,10 @@ header {
   gap: 8px;
 }
 
-/* Botões de resposta: altura e largura ajustadas de forma dinâmica */
+/* Botões de resposta: tamanho dinâmico com padding */
 .botao-resposta {
   width: 100%;
-  padding: 5px 10px; /* Removido o height fixo; o padding define o tamanho */
+  padding: 5px 10px;
   text-align: left;
   border: none;
   cursor: pointer;
@@ -158,6 +155,22 @@ header {
   text-align: center;
   font-weight: 600;
   font-size: 1.1em;
+}
+
+/* Botão "Tentar Novamente" */
+#reiniciarQuiz {
+  padding: 8px 16px;
+  border: none;
+  background: rgba(255, 27, 123, 0.8);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+  font-size: 1em;
+}
+
+#reiniciarQuiz:hover {
+  background: rgba(25, 202, 202, 0.8);
 }
 
 /* Rodapé */

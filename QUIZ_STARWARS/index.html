@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Star Wars</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <!-- Cabeçalho com logo e títulos -->
   <header>
@@ -24,19 +22,20 @@
   <main class="conteudo-jogo">
     <section class="questionario">
       <div class="conteudo">
-        <!-- Área do progresso: inclui número e feedback de acertos/erros -->
+        <!-- Barra de progresso: mostra número da pergunta e feedback (acertos/erros) -->
         <span class="progresso">
           <span id="progresso-text"></span>
           <span id="feedback-icons"></span>
         </span>
-        <!-- Pergunta -->
+        <!-- Exibição da pergunta -->
         <span class="pergunta"></span>
         <!-- Container para os botões de resposta -->
         <div class="respostas"></div>
       </div>
-      <!-- Tela final: exibida quando o quiz termina -->
+      <!-- Tela final: exibida ao terminar o quiz -->
       <div class="fim">
         <span></span>
+        <button id="reiniciarQuiz">Tentar Novamente</button>
       </div>
     </section>
   </main>
@@ -46,5 +45,4 @@
   </footer>
   <script src="script.js"></script>
 </body>
-
 </html>

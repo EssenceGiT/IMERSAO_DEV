@@ -1,4 +1,4 @@
-// Array de perguntas com respostas (na primeira pergunta, adicionamos "Raymus Antilles")
+// Array de perguntas com respostas
 const perguntas = [
   {
     pergunta: "Qual o nome do Darth Vader?",
@@ -63,15 +63,14 @@ const perguntas = [
 ];
 
 /* 
-  Variáveis para controle do quiz:
-  - indiceAtual: Índice da pergunta atual.
-  - acertos: Número de respostas corretas.
+  Variáveis de controle:
+  - indiceAtual: índice da pergunta atual.
+  - acertos: contador de respostas corretas.
 */
 let indiceAtual = 0;
 let acertos = 0;
 
-// Seleção dos elementos do HTML para atualização dinâmica
-const progressoElemento = document.querySelector(".progresso");
+// Seleciona os elementos HTML que serão atualizados dinamicamente
 const progressoText = document.getElementById("progresso-text");
 const feedbackIcons = document.getElementById("feedback-icons");
 const perguntaElemento = document.querySelector(".pergunta");
@@ -82,28 +81,24 @@ const conteudoFinal = document.querySelector(".fim");
 
 /**
  * Função carregarPergunta:
- * - Atualiza o progresso (número da pergunta).
- * - Exibe a pergunta e cria os botões de resposta.
+ * - Atualiza o progresso e exibe a pergunta atual.
+ * - Cria os botões de resposta dinamicamente.
  */
 function carregarPergunta() {
-  // Atualiza o número da pergunta
   progressoText.innerHTML = `${indiceAtual + 1} / ${perguntas.length}`;
-  // Obtém a pergunta atual
   const perguntaAtual = perguntas[indiceAtual];
   perguntaElemento.innerHTML = perguntaAtual.pergunta;
-  // Limpa as respostas anteriores
   respostasElemento.innerHTML = "";
 
-  // Cria um botão para cada resposta
+  // Cria botões para cada resposta
   for (let i = 0; i < perguntaAtual.respostas.length; i++) {
     const resposta = perguntaAtual.respostas[i];
     const botao = document.createElement("button");
     botao.classList.add("botao-resposta");
     botao.innerText = resposta.opcao;
-
-    // Evento de clique para cada resposta
+    
+    // Ao clicar, exibe feedback e avança para a próxima pergunta
     botao.onclick = function () {
-      // Cria um elemento de feedback (check ou X)
       const icon = document.createElement("span");
       if (resposta.correto) {
         acertos++;
@@ -113,10 +108,9 @@ function carregarPergunta() {
         icon.innerText = "✗";
         icon.classList.add("feedback-incorrect");
       }
-      // Adiciona o ícone de feedback à área de progresso (mantendo os anteriores)
+      // Adiciona o ícone de feedback sem apagar os anteriores
       feedbackIcons.appendChild(icon);
 
-      // Avança para a próxima pergunta
       indiceAtual++;
       if (indiceAtual < perguntas.length) {
         carregarPergunta();
@@ -132,20 +126,38 @@ function carregarPergunta() {
 /**
  * Função finalizarJogo:
  * - Exibe a tela final com o número de acertos.
+ * - Mostra o botão de "Tentar Novamente".
  */
 function finalizarJogo() {
   textoFinal.innerHTML = `Você acertou ${acertos} de ${perguntas.length}`;
-  // Esconde a área de perguntas e exibe a tela final
+  // Esconde a área de perguntas e respostas
   conteudo.style.display = "none";
+  // Exibe a tela final com o resultado e o botão de reiniciar
   conteudoFinal.style.display = "flex";
+}
+
+/**
+ * Função reiniciarQuiz:
+ * - Reinicia o quiz, limpando variáveis e reexibindo a área de conteúdo.
+ */
+function reiniciarQuiz() {
+  indiceAtual = 0;
+  acertos = 0;
+  feedbackIcons.innerHTML = "";
+  conteudo.style.display = "flex";
+  conteudoFinal.style.display = "none";
+  carregarPergunta();
 }
 
 // Inicia o quiz ao carregar a página
 carregarPergunta();
 
+// Adiciona evento para o botão "Tentar Novamente"
+document.getElementById("reiniciarQuiz").addEventListener("click", reiniciarQuiz);
+
 /*
   Comentários:
-  - Utilizamos "for" para iterar sobre as respostas e criar os botões dinamicamente.
+  - Usamos "for" para iterar sobre as respostas e criar botões dinamicamente.
   - Após cada resposta, um ícone (✓ ou ✗) é adicionado à barra de progresso para feedback imediato.
-  - Ao final do quiz, o número total de acertos é exibido.
+  - Ao final, o resultado é exibido e o usuário pode reiniciar o quiz.
 */
