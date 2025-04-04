@@ -1,0 +1,175 @@
+/* Estilos Globais */
+body {
+  background: url("https://i.postimg.cc/ZRR6vBKQ/81446.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Gabarito", sans-serif;
+  margin: 20px;
+  color: white;
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  text-align: end;
+}
+
+.logo img {
+  width: 40%;
+  max-width: 300px;
+  right: 25px;
+  position: absolute;
+}
+
+.titulo {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.titulo h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.titulo h3 {
+  margin: 5px 0 0;
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Caixa principal do Quiz - altura automática para conter todo o conteúdo */
+.conteudo-jogo {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 5px #1983b8;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 8px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.conteudo-jogo:hover {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px #19caca;
+}
+
+/* Estrutura do questionário */
+.questionario {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Área de conteúdo (progresso, pergunta e respostas) */
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px; /* Espaçamento menor entre os elementos */
+  padding: 5px;
+}
+
+/* Progresso e feedback */
+.progresso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+#progresso-text {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+}
+
+#feedback-icons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Ícones de feedback */
+.feedback-correct {
+  color: #27ae60;
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+.feedback-incorrect {
+  color: #e74c3c;
+  font-size: 1.3em;
+  margin-left: 5px;
+}
+
+/* Estilo da pergunta */
+.pergunta {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+/* Área das respostas */
+.respostas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Botões de resposta: altura e largura ajustadas de forma dinâmica */
+.botao-resposta {
+  width: 100%;
+  padding: 5px 10px; /* Removido o height fixo; o padding define o tamanho */
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 153, 255, 0.8);
+  color: white;
+  border-radius: 4px;
+  transition: background 0.3s;
+  font-size: 0.95em;
+}
+
+.botao-resposta:hover {
+  background: rgba(25, 202, 202, 0.8);
+  font-weight: 600;
+}
+
+/* Tela de fim do quiz */
+.fim {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fim span {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 90%;
+  max-width: 600px;
+  padding: 5px;
+  border-radius: 8px;
+  margin: 20px auto;
+  box-shadow: 0 0 5px #1983b8; 
+}
